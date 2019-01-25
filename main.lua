@@ -14,13 +14,14 @@ function love.load()
   horizontal_collision = false
   vertical_collision = false
 
+  paused = false
 end
 
 function love.update(dt)
 
   x_dir = x_dir + (speed * math.sin(angle)) --How much to travel on the x-plane?
   y_dir = y_dir + (speed * math.cos(angle)) --How much to travel on the y-plane?
-
+  
   if love.keyboard.isDown("up") then
     angle = angle + angle_change*dt
   end
@@ -38,11 +39,13 @@ function love.update(dt)
   end
 
   if horizontal_collision == true then
-    speed = -speed
+    --speed = -speed
+    angle = -angle
     horizontal_collision = false
   end
   if vertical_collision == true then
-    speed = -speed
+    angle = ((angle + (math.pi/2)) * -1) - (math.pi/2)
+    --speed = -speeds
     vertical_collision = false
   end
   if love.keyboard.isDown("left") then
@@ -70,9 +73,23 @@ function love.draw()
   love.graphics.line(x_dir, y_dir, 800, y_dir)
   love.graphics.line(x_dir, y_dir, x_dir, 600)
 
+  love.graphics.print(math.cos(angle), 5, 400)
+
+  love.graphics.print(math.sin(angle), 5, 430)
+
 end
 
 function love.keypressed(key, scancode, isrepeat)
 
+  if key == "enter" then
+        
+    if paused == true then
+      paused = false
+    end
+    if paused == false then
+      paused = true
+    end
+
+  end
 
 end
