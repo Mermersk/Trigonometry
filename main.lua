@@ -13,7 +13,7 @@ function love.load()
 
   horizontal_collision = false
   vertical_collision = false
-
+  
   paused = false
 end
 
@@ -82,7 +82,7 @@ end
 function love.keypressed(key, scancode, isrepeat)
 
   if key == "enter" then
-        
+
     if paused == true then
       paused = false
     end
