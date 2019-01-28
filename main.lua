@@ -13,7 +13,7 @@ function love.load()
 
   horizontal_collision = false
   vertical_collision = false
-  
+
   paused = false
 end
 
