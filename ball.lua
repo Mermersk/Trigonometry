@@ -53,10 +53,8 @@ function Ball:update(dt)
     if self.yCollision == true then
         self.angle = ((self.angle + (math.pi/2)) * -1) - (math.pi/2)
         self.yCollision = false
-    end
-      
+    end      
 end
-
 
 function Ball:draw()
 
