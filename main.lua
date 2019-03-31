@@ -9,7 +9,7 @@ function love.load()
   bolti2:initialize()
 
   myBalls = {}
-  for i = 1, 500 do
+  for i = 1, 2500 do
     table.insert(myBalls, Ball:create())
     myBalls[i]:initialize()
   end
